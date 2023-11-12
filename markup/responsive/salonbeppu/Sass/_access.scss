@@ -1,0 +1,41 @@
+#access {
+    background-color: #A193861F;
+    padding-bottom: 6.9rem;
+    padding-top: 200px;
+
+    .title {
+        font-size: 1.8rem;
+        color: #707070;
+        margin-bottom: 60px;
+        margin-left: 12.5rem;
+    }
+
+    .access-box {
+        display: flex;
+        width: 100%;
+    }
+
+    .access-t {
+        background-color: #D0C5BA;
+        padding: 5rem;
+        padding-left: 12.5rem;
+        width: 35%;
+    }
+
+    .access-m {
+        width: 65%;
+    }
+
+
+    h4 {
+        font-size: 2.4rem;
+        font-weight: bold;
+        padding: 3rem 0;
+        color: #00000038;
+    }
+
+    p {
+        margin-bottom: 2rem;
+        color: white;
+    }
+}
