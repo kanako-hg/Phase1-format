@@ -1,0 +1,33 @@
+.menu-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.menu-box {
+    width: 30.5%; //(inner横幅 - item間隔*2）/3
+    padding: 0px 3em;
+
+
+}
+
+.news__img {
+    text-align: center;
+}
+
+.menu__title {
+    font-size: 3rem;
+    font-weight: borld;
+    padding: 2rem;
+    text-align: center;
+}
+
+.menu__intro {
+    padding: 2.5rem;
+    line-height: 1.5;
+}
+
+.menu__plice {
+    padding: 2rem;
+    text-align: right;
+}

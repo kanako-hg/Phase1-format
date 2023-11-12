@@ -1,0 +1,32 @@
+#concept {
+    background: linear-gradient(to bottom, #A193861F 0%, #A193861F 50%, #A1938689 50%, #A1938689 100%);
+}
+
+
+.concept-wrap-img {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.concept-img2 {
+    margin-left: 10px;
+}
+
+.concept-wrap-text {
+    display: flex;
+    justify-content: center;
+}
+
+.message {
+    padding: 64px;
+    margin: auto 0px;
+    color: white;
+    font-family: serif;
+
+    &-m {
+        @extend .message;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.5;
+    }
+}
