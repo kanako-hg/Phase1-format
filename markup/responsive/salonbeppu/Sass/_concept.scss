@@ -1,7 +1,12 @@
 #concept {
     background: linear-gradient(to bottom, #A193861F 0%, #A193861F 50%, #A1938689 50%, #A1938689 100%);
-}
 
+    @include sp {
+        padding-top: 800px;
+    }
+
+
+}
 
 .concept-wrap-img {
     display: flex;
@@ -9,13 +14,55 @@
     flex-wrap: wrap;
 }
 
+img.concept-img1 {
+    @include sp {
+        display: none;
+    }
+}
+
+
 .concept-img2 {
     margin-left: 10px;
+
+    @include sp {
+        display: none;
+    }
+
+}
+
+.concept-img-sp1 {
+    width: 45%;
+    height: auto;
+
+    @include tab {
+        display: none;
+    }
+
+    @include pc {
+        display: none;
+    }
+}
+
+.concept-img-sp2 {
+    width: 45%;
+    height: auto;
+    margin-left: 10px;
+
+
+    @include tab {
+        display: none;
+    }
+
+    @include pc {
+        display: none;
+    }
 }
 
 .concept-wrap-text {
-    display: flex;
-    justify-content: center;
+    @include pc {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .message {

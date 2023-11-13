@@ -2,17 +2,29 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @include sp {
+        flex-direction: column;
+    }
 }
 
 .menu-box {
     width: 30.5%; //(inner横幅 - item間隔*2）/3
     padding: 0px 3em;
 
+    @include sp {
+        width: 100%;
+    }
+
 
 }
 
 .news__img {
     text-align: center;
+
+    @include sp {
+        width: 100%;
+    }
 }
 
 .menu__title {

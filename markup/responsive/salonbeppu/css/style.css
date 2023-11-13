@@ -202,24 +202,53 @@ h2 {
 p {
   font-size: 1.6rem; }
 
+/* mixin */
 header {
   background-color: inherit;
   width: 100%;
   height: 136px;
   display: flex;
   position: absolute;
-  line-height: 136px;
   text-align: center;
   z-index: 20; }
+  @media (max-width: 599px) {
+    header {
+      background-color: white;
+      height: 50px;
+      justify-content: space-between;
+      padding: 10px; } }
   header .hd-logo {
     font-size: 3.8rem;
     margin-left: 78px; }
+    @media (max-width: 599px) {
+      header .hd-logo {
+        font-size: 2.2rem;
+        flex-wrap: nowrap;
+        margin: 10px; } }
   header .pc-navmenu ul {
     display: flex; }
     header .pc-navmenu ul li {
       padding: 0px 20px;
       font-size: 1.8rem;
       color: #707070; }
+    @media (max-width: 599px) {
+      header .pc-navmenu ul {
+        display: none; } }
+  header .ham {
+    display: none; }
+    @media (max-width: 599px) {
+      header .ham {
+        display: flex;
+        width: 25px;
+        height: 14px;
+        justify-content: space-between;
+        flex-direction: column;
+        display: block; }
+        header .ham span {
+          display: inline-block;
+          width: 100%;
+          height: 1px;
+          background-color: black; } }
 
 #first-v {
   display: flex;
@@ -239,16 +268,30 @@ header {
     display: flex;
     flex-direction: row-reverse;
     flex-direction: column; }
+    @media (max-width: 599px) {
+      #first-v .firstView-catchCopy .firstView-textWrap {
+        position: relative; } }
   #first-v .firstView-catchCopy {
     position: absolute;
     width: 150%;
     height: auto;
     top: calc(50% - 76px);
     color: black; }
+    @media (max-width: 599px) {
+      #first-v .firstView-catchCopy {
+        z-index: 20;
+        top: 300px;
+        left: -100px;
+        color: white; } }
   #first-v #firstView .firstView-catchCopy .firstView-textWrap {
     flex-direction: column-reverse; }
   #first-v .firstView-ImgWrap {
     background-size: cover; }
+    @media (max-width: 599px) {
+      #first-v .firstView-ImgWrap {
+        max-width: 100%;
+        position: absolute;
+        top: 50px; } }
   #first-v #firstView .firstView-ImgWrap img {
     width: 100%;
     height: auto; }
@@ -264,18 +307,50 @@ header {
 
 #concept {
   background: linear-gradient(to bottom, #A193861F 0%, #A193861F 50%, #A1938689 50%, #A1938689 100%); }
+  @media (max-width: 599px) {
+    #concept {
+      padding-top: 800px; } }
 
 .concept-wrap-img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
 
+@media (max-width: 599px) {
+  img.concept-img1 {
+    display: none; } }
+
 .concept-img2 {
   margin-left: 10px; }
+  @media (max-width: 599px) {
+    .concept-img2 {
+      display: none; } }
 
-.concept-wrap-text {
-  display: flex;
-  justify-content: center; }
+.concept-img-sp1 {
+  width: 45%;
+  height: auto; }
+  @media (max-width: 1024px) {
+    .concept-img-sp1 {
+      display: none; } }
+  @media (min-width: 1025px) {
+    .concept-img-sp1 {
+      display: none; } }
+
+.concept-img-sp2 {
+  width: 45%;
+  height: auto;
+  margin-left: 10px; }
+  @media (max-width: 1024px) {
+    .concept-img-sp2 {
+      display: none; } }
+  @media (min-width: 1025px) {
+    .concept-img-sp2 {
+      display: none; } }
+
+@media (min-width: 1025px) {
+  .concept-wrap-text {
+    display: flex;
+    justify-content: center; } }
 
 .message, .message-m {
   padding: 64px;
@@ -290,13 +365,22 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
+  @media (max-width: 599px) {
+    .menu-wrap {
+      flex-direction: column; } }
 
 .menu-box {
   width: 30.5%;
   padding: 0px 3em; }
+  @media (max-width: 599px) {
+    .menu-box {
+      width: 100%; } }
 
 .news__img {
   text-align: center; }
+  @media (max-width: 599px) {
+    .news__img {
+      width: 100%; } }
 
 .menu__title {
   font-size: 3rem;
@@ -321,16 +405,26 @@ header {
     color: #707070;
     margin-bottom: 60px;
     margin-left: 12.5rem; }
-  #access .access-box {
-    display: flex;
-    width: 100%; }
+    @media (max-width: 599px) {
+      #access .title {
+        margin-left: 6.5rem; } }
+  @media (min-width: 1025px) {
+    #access .access-box {
+      display: flex;
+      width: 100%; } }
   #access .access-t {
     background-color: #D0C5BA;
     padding: 5rem;
     padding-left: 12.5rem;
     width: 35%; }
+    @media (max-width: 599px) {
+      #access .access-t {
+        width: 100%; } }
   #access .access-m {
     width: 65%; }
+    @media (max-width: 599px) {
+      #access .access-m {
+        width: 100%; } }
   #access h4 {
     font-size: 2.4rem;
     font-weight: bold;
@@ -345,22 +439,36 @@ footer {
   height: 342px;
   padding: 250px 4vw 60px 4vw; }
 
-.footer-itemWrap {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-  padding-bottom: 62px; }
-  .footer-itemWrap::before {
-    position: absolute;
-    content: '';
-    top: -84px;
-    height: 1px;
+@media (max-width: 599px) {
+  .footer-itemWrap {
+    position: relative;
     width: 100%;
-    border-bottom: 1px solid #7070704D; }
-  .footer-itemWrap footer .footer-itemWrap .footer-item {
+    padding-bottom: 62px; }
+    .footer-itemWrap::before {
+      position: absolute;
+      content: '';
+      top: -84px;
+      height: 1px;
+      width: 100%;
+      border-bottom: 1px solid #7070704D; } }
+@media (min-width: 1025px) {
+  .footer-itemWrap {
     display: flex;
-    align-items: center; }
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    position: relative;
+    width: 100%;
+    padding-bottom: 62px; }
+    .footer-itemWrap::before {
+      position: absolute;
+      content: '';
+      top: -84px;
+      height: 1px;
+      width: 100%;
+      border-bottom: 1px solid #7070704D; } }
+.footer-itemWrap footer .footer-itemWrap .footer-item {
+  display: flex;
+  align-items: center; }
 
 .footer-item__title {
   margin-right: 25px; }
@@ -375,5 +483,16 @@ footer .footer-itemWrap .footer-item__title a {
 
 .footer-item {
   display: flex; }
+
+@media (max-width: 599px) {
+  button#reserve {
+    text-align: center;
+    align-items: center;
+    display: block;
+    margin: 30px auto;
+    padding: 10px 40px;
+    color: #707070;
+    background-color: #FFFFFF;
+    font-size: 1.8rem; } }
 
 /*# sourceMappingURL=style.css.map */
