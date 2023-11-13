@@ -3,6 +3,7 @@
     flex-direction: row-reverse;
     position: relative;
 
+
     .firstView-catchCopy {
         width: 46%;
         height: auto;
@@ -19,6 +20,11 @@
         display: flex;
         flex-direction: row-reverse;
         flex-direction: column;
+
+        @include sp {
+            position: relative;
+
+        }
     }
 
     .firstView-catchCopy {
@@ -27,6 +33,13 @@
         height: auto;
         top: calc(50% - 76px);
         color: black;
+
+        @include sp {
+            z-index: 20;
+            top: 300px;
+            left: -100px;
+            color: white;
+        }
     }
 
     #firstView .firstView-catchCopy .firstView-textWrap {
@@ -35,6 +48,12 @@
 
     .firstView-ImgWrap {
         background-size: cover;
+
+        @include sp {
+            max-width: 100%;
+            position: absolute;
+            top: 50px;
+        }
     }
 
     #firstView .firstView-ImgWrap img {

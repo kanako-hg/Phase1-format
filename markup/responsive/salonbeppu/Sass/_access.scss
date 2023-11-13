@@ -8,11 +8,20 @@
         color: #707070;
         margin-bottom: 60px;
         margin-left: 12.5rem;
+
+        @include sp {
+            margin-left: 6.5rem;
+        }
     }
 
     .access-box {
-        display: flex;
-        width: 100%;
+
+        @include pc {
+            display: flex;
+            width: 100%;
+        }
+
+
     }
 
     .access-t {
@@ -20,10 +29,18 @@
         padding: 5rem;
         padding-left: 12.5rem;
         width: 35%;
+
+        @include sp {
+            width: 100%;
+        }
     }
 
     .access-m {
         width: 65%;
+
+        @include sp {
+            width: 100%;
+        }
     }
 
 
