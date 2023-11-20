@@ -52,17 +52,22 @@ const dateSearch = document.getElementById("dateSearch");
 const diffTime = document.getElementById("diffTime");
 // timer変数を定義する
 let timer;
-// 本日の日時を取得しtodayという変数に入れる
-const today = new Date();
+
 
 // 検索ボタンを押したとき
-// dateSearchという変数の要素のclickイベントにfunctionで記述された処理を登録する
-dateSearch.addEventListener("click", function count() {
+function count() {
     console.log(dateSet.value);
+    // 本日の日時を取得しtodayという変数に入れる
+    const today = new Date();
     console.log(today);
 
     // dateSet変数のvalueをlimiteDayという変数に入れる
-    const limiteDay = dateSet.value;
+    // 最初から00:00に設定する
+    const limiteDay = new Date(`${dateSet.value}T00:00:00`);
+    // or
+    // ② //set関数で後からセットする方法
+    //     const limitDay = new Date(dateSet.value)
+    //     limitDay.setHours(0)
     console.log(limiteDay);
 
     // today変数に入っている時間をミリ秒に変換し、elTodayという変数に入れる
@@ -88,6 +93,12 @@ dateSearch.addEventListener("click", function count() {
     const countSeconds = (Math.trunc(count / 1000 % 60));
     // diffTimeという変数にテキストを代入→テキストを表示させる
     diffTime.textContent = `${dateSet.value}まで後${countDate}日${countHours}時間${countMinutes}分${countSeconds}秒`;
+};
+// dateSearchという変数の要素のclickイベントにfunctionで記述された処理を登録する
+dateSearch.addEventListener("click", function () {
+    // // timer変数（インターバルID）にsetInterval処理を代入する
+    timer = setInterval('count()', 1000);
 });
-// timer変数（インターバルID）にsetInterval処理を代入する
-// timer = setInterval('count', 1000);
+
+
+
