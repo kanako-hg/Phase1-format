@@ -243,12 +243,16 @@ const nowTime7 = document.getElementById("nowTime7");
 const nowTime8 = document.getElementById("nowTime8");
 // "nowTime9"というidの(HTML)要素を、nowTime1という変数に入れる
 const nowTime9 = document.getElementById("nowTime9");
-// timer1という変数を作成する
-let timer1;
-// timer2という変数を作成する
-let timer2;
-// timer3という変数を作成する
-let timer3;
+const rel1 = [nowTime1, nowTime4, nowTime7];
+const rel2 = [nowTime2, nowTime5, nowTime8];
+const rel3 = [nowTime3, nowTime6, nowTime9];
+let timers = new Array(3);
+// // timer1という変数を作成する
+// let timer1;
+// // timer2という変数を作成する
+// let timer2;
+// // timer3という変数を作成する
+// let timer3;
 // num1という変数を作成し配列を代入する
 let num1 = 0;
 // num2という変数を作成し配列を代入する
@@ -267,6 +271,9 @@ let num7 = 1;
 let num8 = 1;
 // num9という変数を作成し配列を代入する
 let num9 = 1;
+const rel_num1 = [0, 9, 1];
+const rel_num2 = [0, 9, 1];
+const rel_num3 = [0, 9, 1];
 // nowTime1という変数にnum1(=0)を代入する
 nowTime1.textContent = num1;
 // nowTime2という変数にnum2(=0)を代入する
@@ -298,14 +305,18 @@ startTimer.addEventListener("click", function () {
     setTime2.removeAttribute("disabled");
     // setTime3という変数(ボタン)のdisabled属性を削除
     setTime3.removeAttribute("disabled");
-    // timer1変数に入れたsetIntervalの繰り返し動作を取り消す
-    clearInterval(timer1);
-    // timer2変数に入れたsetIntervalの繰り返し動作を取り消す
-    clearInterval(timer2);
-    // timer3変数に入れたsetIntervalの繰り返し動作を取り消す
-    clearInterval(timer3);
+
+    timers.forEach(timer => {
+        clearInterval(timer);
+    });
+    // // timer1変数に入れたsetIntervalの繰り返し動作を取り消す
+
+    // // timer2変数に入れたsetIntervalの繰り返し動作を取り消す
+    // clearInterval(timers[1]);
+    // // timer3変数に入れたsetIntervalの繰り返し動作を取り消す
+    // clearInterval(timers[2]);
     // num1という変数に0を代入する
-    num1 = 0;
+    rel_num1[0] = 0;
     // num2という変数に0を代入する
     num2 = 0;
     // num3という変数に0を代入する
@@ -323,28 +334,32 @@ startTimer.addEventListener("click", function () {
     // num9という変数に0を代入する
     num9 = 1;
     // timer1という変数にsetIntervalの繰り返し処理を入れる
-    timer1 = setInterval(() => {
-        if (num1 === 0) {
-            num1 = 10;
-        }
-        num1 -= 1;
-        nowTime1.textContent = num1;
+    timers[0] = setInterval(() => {
+        rel_num1.forEach((num, index) => {
+            console.log(num);
+            if (num === 0) {
+                rel_num1[index] = 10;
+            }
+            rel_num1[index] -= 1;
+            rel1[index].textContent = num;
+        });
 
-        if (num4 === 0) {
-            num4 = 10;
-        }
-        num4 -= 1;
-        nowTime4.textContent = num4;
 
-        if (num7 === 0) {
-            num7 = 10;
-        }
-        num7 -= 1;
-        nowTime7.textContent = num7;
+        // if (num4 === 0) {
+        //     num4 = 10;
+        // }
+        // num4 -= 1;
+        // nowTime4.textContent = num4;
+
+        // if (num7 === 0) {
+        //     num7 = 10;
+        // }
+        // num7 -= 1;
+        // nowTime7.textContent = num7;
         // 0.1秒ごとに以上の処理を繰り返す
     }, 1000);
     // timer2という変数にsetIntervalの繰り返し処理を入れる
-    timer2 = setInterval(() => {
+    timers[1] = setInterval(() => {
         if (num2 === 0) {
             num2 = 10;
         }
@@ -366,7 +381,7 @@ startTimer.addEventListener("click", function () {
         // 0.1秒ごとに以上の処理を繰り返す
     }, 1000);
     // timer3という変数にsetIntervalの繰り返し処理を入れる
-    timer3 = setInterval(() => {
+    timers[2] = setInterval(() => {
         if (num3 === 0) {
             num3 = 10;
         }
@@ -398,10 +413,10 @@ startTimer.addEventListener("click", function () {
 // setTime1という変数の要素のclickイベントにfunctionで記述された処理を登録する
 setTime1.addEventListener("click", function () {
     // timer1変数に入れたsetIntervalの繰り返し動作を取り消す
-    clearInterval(timer1);
+    clearInterval(timers[0]);
     // setTime1という変数の要素の属性にdisabledをtrueで追加する(disabled発動!)
     setTime1.setAttribute("disabled", true);
-    console.log(num1);
+    console.log(rel_num1[0]);
     // setTime1のdisabled属性がtrueかつsetTime2のdisabled属性がtrueかつsetTime3のdisabled属性がtrueのとき(完全一致)
     if (setTime1.disabled === true && setTime2.disabled === true && setTime3.disabled === true) {
         // num1=num2=num3(完全一致)のとき
@@ -429,7 +444,7 @@ setTime1.addEventListener("click", function () {
 // setTime2という変数の要素のclickイベントにfunctionで記述された処理を登録する
 setTime2.addEventListener("click", function () {
     // timer2変数に入れたsetIntervalの繰り返し動作を取り消す
-    clearInterval(timer2);
+    clearInterval(timers[1]);
     // setTime2という変数の要素の属性にdisabledをtrueで追加する(disabled発動!)
     setTime2.setAttribute("disabled", true);
     console.log(num2);
@@ -460,14 +475,14 @@ setTime2.addEventListener("click", function () {
 // setTime3という変数の要素のclickイベントにfunctionで記述された処理を登録する
 setTime3.addEventListener("click", function () {
     // timer3変数に入れたsetIntervalの繰り返し動作を取り消す
-    clearInterval(timer3);
+    clearInterval(timers[2]);
     // setTime3という変数の要素の属性にdisabledをtrueで追加する(disabled発動!)
     setTime3.setAttribute("disabled", true);
     console.log(num3);
     // setTime1のdisabled属性がtrueかつsetTime2のdisabled属性がtrueかつsetTime3のdisabled属性がtrueのとき(完全一致)
     if (setTime1.disabled === true && setTime2.disabled === true && setTime3.disabled === true) {
         // num1=num2=num3(完全一致)のとき
-        if (num1 === num2 && num2 === num3) {
+        if (rel_num1[0] === num2 && num2 === num3) {
             // アラートで”成功”と表示する
             alert("成功");
         }
@@ -479,3 +494,108 @@ setTime3.addEventListener("click", function () {
     }
 
 });
+
+// ```js
+// const slotData = [
+//   {
+//     number: 0,
+//     timer: null,
+//     viewers: [
+//       document.getElementById("nowTime4"),
+//       document.getElementById("nowTime1"),
+//       document.getElementById("nowTime7"),
+//     ],
+//     stopBtn: document.getElementById("setTime1"),
+//   },
+//   {
+//     number: 0,
+//     timer: null,
+//     viewers: [
+//       document.getElementById("nowTime5"),
+//       document.getElementById("nowTime2"),
+//       document.getElementById("nowTime8"),
+//     ],
+//     stopBtn: document.getElementById("setTime2"),
+//   },
+//   {
+//     number: 0,
+//     timer: null,
+//     viewers: [
+//       document.getElementById("nowTime6"),
+//       document.getElementById("nowTime3"),
+//       document.getElementById("nowTime9"),
+//     ],
+//     stopBtn: document.getElementById("setTime3"),
+//   },
+// ];
+
+// let stopCount = 0;
+
+// slotData.forEach((slot) => {
+//   slot.viewers[0].textContent = 9;
+//   slot.viewers[1].textContent = 0;
+//   slot.viewers[2].textContent = 1;
+// });
+
+// const startTimer = document.getElementById("startTimer");
+
+// const createNum = (num) => {
+//   if (num === 10) {
+//     num = 0;
+//   }
+//   if (num === -1) {
+//     num = 9;
+//   }
+//   return num;
+// };
+// startTimer.addEventListener("click", function () {
+//   slotData.forEach((slot) => {
+//     slot.number = 0;
+//   });
+//   slotData.forEach((slot) => {
+//     slot.stopBtn.disabled = false;
+//     slot.timer = setInterval(function () {
+//       // 最初の数値は０
+//       // 数値が１づづ増えていく
+//       slot.number++;
+//       // ９に到達したら0に戻る。
+//       slot.number = createNum(slot.number);
+//       // 画面に表示させる。
+//       slot.viewers[0].textContent = createNum(slot.number - 1);
+//       slot.viewers[1].textContent = createNum(slot.number);
+//       slot.viewers[2].textContent = createNum(slot.number + 1);
+//     }, 100);
+//   });
+// });
+// slotData.forEach((slot) => {
+//   slot.stopBtn.addEventListener("click", function () {
+//     clearInterval(slot.timer);
+//     slot.stopBtn.disabled = true;
+//     stopCount += 1;
+//     judge();
+//   });
+// });
+
+// const judge = () => {
+//   if (stopCount === 3) {
+//     stopCount = 0;
+//     // if (numbers[0] === numbers[1] && numbers[0] === numbers[2]) {
+//     if (slotData.every((slot) => slotData[0].number === slot.number)) {
+//       alert("あたり");
+//     } else {
+//       alert("残念");
+//     }
+//   }
+// };
+
+// ```
+
+
+// もっと短くて分かりやすいコードにしたい
+
+// とてもいい考えだと思います！
+// 今回見させていただいたコードには複数短くできる場所があります。
+// やるべきこととしては以下の3点なのですが、難しいと思います。なので、今回はテキストではなくビデオでの個別指導で対応させていただきたいのですが、可能でしょうか？
+// バラバラに定義している変数を配列でまとめて定義する
+// 配列でまとまっているものに対してそれぞれに同じ処理を加える
+// 同じ処理をしている箇所を関数化してまとめる
