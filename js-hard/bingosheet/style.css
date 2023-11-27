@@ -1,3 +1,15 @@
+p {
+  margin-top: 10px;
+}
+
+#view {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 360px;
+  width: 280px;
+}
+
 td {
   background-color: rgb(70, 206, 216);
   border: 1px solid black;
@@ -8,13 +20,14 @@ td {
   table-layout: fixed;
   padding: 1px;
   font-size: 20px;
+  margin-bottom: 1px;
 }
 
 /* チャレンジ問題 */
 
-/* .hit-num {
-  background-color: black ;
-  color: rgb(70, 206, 216) ;
-} */
+.hit-num {
+  background-color: black;
+  color: rgb(70, 206, 216);
+}
 
 /* チャレンジ問題 ここまで */
