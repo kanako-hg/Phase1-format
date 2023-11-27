@@ -12,7 +12,7 @@ let randomNum3;
 // numbers_cpという空の配列を作成する
 let numbers_cp = [];
 // remain変数を作成し10を代入する
-let remain = 1;
+let remain = 10;
 // "remainTurn"というidの(HTML)要素を、remainTurnという変数に入れる
 const remainTurn = document.getElementById("remainTurn");
 // remainTurn"というidの(HTML)要素に`あと残り${remain}回です`と表示する
@@ -83,11 +83,14 @@ numCheck.addEventListener("click", function () {
     if (numbers.length === 0) {
         alert("文字を入力してください");
     }
-    // 0以下のとき
-    else if (numbers.every((elm) => {
-        return (elm < 0);
-    })) {
-        alert("0以上の数値を入力してください");
+    // NaNのとき
+    else if
+        // number配列の各数値がNaNでないか調べる
+        // trueならアラート
+        (numbers.some((elm) => {
+            return (isNaN(elm));
+        })) {
+        alert("変換できないものが入力されています。0以上の数値を入力してください");
     }
     // 3桁以外の処理
     else if (numbers.length !== 3) {
