@@ -18,6 +18,7 @@ panel {
   float: left;
   cursor: pointer;
 }
+
 /* 裏の状態 */
 .back {
   background-size: 60px 80px;
@@ -27,4 +28,8 @@ panel {
 .finish {
   opacity: 0;
   cursor: default;
+}
+
+.cannotEvent {
+  pointer-events: none;
 }
